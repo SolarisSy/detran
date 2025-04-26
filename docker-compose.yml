@@ -1,11 +1,8 @@
-version: '3.8'
-
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: ipva-mg-app
     ports:
       - "8080:80" # Mapeia a porta 80 do container para 8080 do host
     volumes:
@@ -26,7 +23,6 @@ services:
 
   db:
     image: mysql:8.0 # Ou outra versão se preferir (ex: mariadb)
-    container_name: ipva-mg-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: sua_senha_root_muito_segura # SENHA FORTE AQUI!
