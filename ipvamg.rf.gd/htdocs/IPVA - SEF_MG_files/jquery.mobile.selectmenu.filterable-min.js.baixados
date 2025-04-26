@@ -1,0 +1,13 @@
+function create_selectmenu_dialog_filterable(c,b,a){if(c.charAt(0)!="#"){c="#"+c;
+}jQuery.mobile.document.on("listviewcreate",(c+"-menu"),function(i){var f,d=jQuery(c+"-listbox"),h=d.jqmData("filter-form"),g=jQuery(i.target);
+if(a){d.addClass("ui-selectmenu-filterable");
+}if(!h){f=jQuery("<input data-type='search' placeholder='"+b+"'></input>");
+h=jQuery("<form></form>").append(f);
+f.textinput();
+jQuery(c+"-listbox").prepend(h).jqmData("filter-form",h);
+}g.filterable({input:f});
+}).on("pagebeforeshow pagehide",(c+"-dialog"),function(i){var h=jQuery(c+"-listbox").jqmData("filter-form"),g=(i.type==="pagebeforeshow"),d=g?jQuery(i.target).find(".ui-content"):jQuery(c+"-listbox");
+var f=h.find("input");
+f.textinput("option","inset",!g).end().prependTo(d);
+});
+}

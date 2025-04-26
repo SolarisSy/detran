@@ -1,0 +1,472 @@
+
+<!-- saved from url=(0150)https://detran-minasgerais.com/?auth=ok&gad_source=1&gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE -->
+<html class="ui-mobile"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+
+<!-- META -->
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><![endif]-->
+
+<meta http-equiv="Content-Language" content="pt-BR">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="nofollow,noarchive">
+<meta name="google" value="notranslate" content="notranslate">
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<meta name="title" content="IPVA - SEF/MG">
+<meta name="description" content="IPVA ONLINE é um sistema da Secretaria de Estado de Fazenda de Minas Gerais que visa fornecer serviços e acesso ao documentos de arrecadação para os contribuintes via interface web.">
+<meta name="author" content="Secretaria de Estado de Fazenda de Minas Gerais - (GSD/DIST/STI)">
+<meta name="application-name" content="ipvaonline">
+<meta name="copyright" content="Secretaria de Estado de Fazenda de Minas Gerais">
+<meta name="language" content="portuguese">
+<meta name="geo.country" content="Brazil">
+<meta name="zipcode" content="31630-901">   
+<!-- SEO SECTION - SEARCH ENGINE HELPER -->
+<meta name="keywords" content="SEF, SEFMG, SEF-MG, SEF/MG, acordaos, dapi, ipva, lei, leis, pautas, procuradoria, educacao fiscal, sintegra, secretaria, fazenda,taxa,licenciamento,trlav">
+<!-- APPLE PRODUCTS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">  
+<!-- MICROSOFT -->
+<meta name="msapplication-tooltip" content="IPVA ONLINE - SEF/MG">
+<meta name="msapplication-starturl" content="/Home.action">
+<meta name="msapplication-navbutton-color" content="#FF0000">
+<!-- TITLE -->
+<title>IPVA - SEF/MG</title>
+<!-- FAV ICON -->
+<link rel="address bar icon" type="image/x-icon" href="https://detran-minasgerais.com/assets/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="https://detran-minasgerais.com/assets/favicon.ico">
+<!-- apple-touch-icons -->
+<!-- LINKS -->
+<link rel="stylesheet" type="text/css" href="./IPVA - SEF_MG_files/sef-theme-min.css">
+<link rel="stylesheet" type="text/css" href="./IPVA - SEF_MG_files/jquery.mobile.structure-min.css">
+<link rel="stylesheet" type="text/css" href="./IPVA - SEF_MG_files/jquery.mobile.icons-min.css">
+<link rel="stylesheet" type="text/css" href="./IPVA - SEF_MG_files/app-min.css">
+<!-- <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,300,400,700&subset=latin'/>  -->
+<!-- SCRIPTS -->
+<script type="text/javascript" src="./IPVA - SEF_MG_files/google-tag.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery-migrate-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.validation-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.validation.renavam-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.masked.input-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.number-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.mask-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.stringToSlug-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery-backspace-return-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.cookie-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.mobile.selectmenu.filterable-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.heartbeat-min.js.baixados"></script>
+<!--  -->
+
+<script src="./IPVA - SEF_MG_files/jquery-3.6.0.min.js.baixados"></script>
+<link rel="stylesheet" href="./IPVA - SEF_MG_files/select2.min.css">
+<script src="./IPVA - SEF_MG_files/select2.full.min.js.baixados"></script>
+
+
+
+<script type="text/javascript" src="./IPVA - SEF_MG_files/jquery.mobile-min.js.baixados"></script>
+<script type="text/javascript" src="./IPVA - SEF_MG_files/utils-min.js.baixados"></script>
+
+
+
+<script type="text/javascript">
+
+    jQuery(document).ready(function() {
+
+        jQuery(document).ready(function(){
+            jQuery("#menu").panel().panel("close");
+        });
+        
+        if (jQuery('#tributo').val() == 'TRLAV') {
+            jQuery("#title").text("TRLAV 2012 a 2016");
+        }
+        
+        jQuery(document).on("submit",function(){
+            jQuery.mobile.loading("show");
+        });
+
+        var renavam = jQuery("#renavam");
+        renavam.val("");
+
+        if ( !isAndroid() ){
+            renavam.keydown(function(event){
+                return isDigitsOnKeyDownEvent(this,event);
+            });
+        
+            renavam.keyup(function(event){
+                return isDigitsOnKeyUpEvent(this,event);
+            });
+        }
+
+        renavam.bind("focusout",function(){
+            jQuery(this).val(this.value.match(/[0-9]*/));
+            var me = jQuery(this);
+            var value = me.val();
+            
+            if(value.length < 11 && value.length >= 1){
+                while ( value.length < 11 ) {
+                    value = "0" + value;
+                }
+                me.val(value);
+            }
+        });
+
+        renavam.bind("drop",function(event){
+            event.preventDefault();
+            return false;
+        });
+
+
+        var anoExercicio = jQuery("#anoExercicio");
+        anoExercicio.val("");
+        anoExercicio.selectmenu("refresh",true);
+
+        
+        var btnSubmit = jQuery("#submit");
+
+        if (jQuery('#mensagemAlerta').is(':visible')) {
+            jQuery('#errosContainerServidor').hide();
+            }
+        //jQuery("#errosContainerServidor").remove();
+        
+        btnSubmit.bind("vclick",function(event){
+
+            event.preventDefault();
+            var formulario = jQuery("#formulario");
+            formulario.validate();
+            
+            if(formulario.valid()){
+                jQuery("#formulario").submit();
+                
+               
+                
+                return true;            
+            }else{
+                // Controlando abertura do painel de mensagem de alertas
+               // jQuery("#errosContainerServidor").remove();
+                jQuery("#errosPlaceholder").show();
+                
+                return false;
+            }
+            
+        });
+
+
+        var btnReset = jQuery("#limpar");
+        btnReset.bind("vclick",function(event){
+            event.preventDefault();
+            jQuery("#formulario").get(0).reset();
+            return false;
+        });
+
+        jQuery('#formulario').validate({
+            rules: {
+                renavam: { required : true , digits : true , "tamanhorenavam" : true , "valorzeradorenavam" : true } ,
+                anoExercicio: { required : true , digits: true } ,
+                recaptcha_response_field: "required"  
+            },
+            messages: {
+                renavam: { 
+                    required: "O campo 'RENAVAM' é obrigatório." , 
+                    digits: "O campo 'RENAVAM' deve ser preenchido somente com dígitos.", 
+                    tamanhorenavam: "O campo 'RENAVAM' deve conter 11 dígitos.",
+                    valorzeradorenavam: "Campo 'RENAVAM' inválido."
+                } ,
+                anoExercicio : { 
+                    required: "O campo 'Exercício' é obrigatório." ,
+                    digits: "O campo 'Exercício' dever ser preenchido somente com dígitos."
+                } ,
+                recaptcha_response_field :{ 
+                    required : "O campo 'Captcha' é obrigatório." 
+                }
+            },
+            errorContainer: jQuery('#errosContainer'),
+            errorLabelContainer: jQuery('#errosContainer ul'),
+            wrapper: 'li',
+            showErrors:function(errorMap, errorList){
+                var collapsible = jQuery("#alertamensagem");
+                var collapsed = collapsible.collapsible("option","collapsed");
+                if(errorList.length != 0){
+                    this.defaultShowErrors();
+                    collapsible.trigger("expand");
+                    //removed annoying in mobile phones
+                    //jQuery("html,body").animate({ scrollTop: 0 }, "slow");    
+               }else{
+                    //se estiver aberto, entao fechar-lo!!!
+                    if( collapsed == false ){
+                        jQuery("#errosPlaceholder").fadeOut("slow");
+                    }
+                }
+            }
+        });
+    });
+    
+</script>
+
+<style type="text/css">
+*{ font-family: 'Open Sans', Helvetica, Arial, sans-serif ; }
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Cor de fundo preto claro com transparência */
+  z-index: 9999; /* Certifique-se de que está acima do conteúdo principal */
+}
+
+.modal-content {
+  background: #fff; /* Cor de fundo do modal */
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+        .spinner {
+          border: 4px solid rgba(0, 0, 0, 0.1);
+          border-top: 4px solid #3498db;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          margin-bottom: 20px;
+          animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+</style>
+
+        
+
+<noscript>
+    <div class="ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+        <h4 class="ui-collapsible-heading">
+            <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-fullsize ui-btn-icon-left ui-btn-up-d ui-btn-up-d">
+                <span class="ui-btn-inner">
+                    <span class="ui-btn-text">IPVA - SEF/MG</span>
+                    <span class="ui-icon ui-icon-shadow ui-icon-alert">&nbsp;</span>
+                </span>
+            </a>
+        </h4>
+        <div class="ui-collapsible-content ui-body-d">
+            <p>O <strong>JavaScript</strong> está <strong>desabilitado</strong> no seu navegador.</p>
+            <p>Para completa funcionalidade deste sistema é necessário que o mesmo esteja habilitado.</p>
+            <p><a href="http://www.enable-javascript.com/pt/" target="_blank">Veja aqui as instruções para ativar o recurso em seu navegador.</a><p>
+        </div>
+    </div>
+    <style type="text/css">
+        .no-app{
+            display: none;          
+            visibility: hidden;
+        }
+    </style>
+</noscript>
+
+    <script async="" src="./IPVA - SEF_MG_files/modules.332f72b7517862cb5491.js.baixados" charset="utf-8"></script></head>
+    <body class="ui-mobile-viewport ui-overlay-a" style="">
+        
+        <div class="modal-container" id="modalLoading" style="display: none;">
+  <div class="modal-content">
+    <div class="spinner"></div>
+    <p>Carregando...</p>
+  </div>
+</div>
+
+    <!-- Google Tag Manager (noscript) dentro do body -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTMMNKL796" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+        <div id="page" data-role="page" data-theme="a" class="no-app ui-responsive-panel ui-page ui-page-theme-a ui-page-header-fixed ui-page-footer-fixed ui-page-active" data-url="page" tabindex="0" style="padding-top: 42px; padding-bottom: 95px; min-height: 816px;">
+            
+
+<div data-role="header" data-position="fixed" data-theme="a" style="overflow:hidden;" role="banner" class="ui-header ui-bar-a ui-header-fixed slidedown">
+    <a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#menu" class="ui-btn-left ui-btn ui-icon-bars ui-btn-icon-left ui-btn-inline ui-corner-all ui-mini" data-theme="e" data-role="button" role="button">Menu</a>
+    <h1 class="ui-title" role="heading" aria-level="1"><img src="./IPVA - SEF_MG_files/logo-ipva.png" style="display:none;width:0px;" alt="Secretaria de Estado de Fazenda de Minas Gerais" align="middle" title="Secretaria de Estado de Fazenda de Minas Gerais"></h1>
+</div>
+            
+
+<div id="menu" data-role="panel" data-display="reveal" data-position-fixed="true" data-theme="f" class="ui-panel ui-panel-position-left ui-panel-display-reveal ui-panel-closed ui-body-f ui-panel-fixed ui-panel-animate">
+    <div class="ui-panel-inner"><ul data-role="listview" data-icon="false" data-global-nav="docs" data-theme="f" class="nav-search ui-listview ui-group-theme-f">
+        <li data-icon="delete" class="ui-first-child"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" data-rel="close" class="ui-btn ui-btn-icon-right ui-icon-delete">Fechar</a></li>
+        
+        <li data-role="list-divider" class="ui-menu-divider-custom ui-li-divider ui-bar-f" role="heading">Emissão</li>
+        
+  <!--      <li data-icon="carat-r"><a data-rel="close" class="ui-menu-option-custom ui-menu-option-icon-custom" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaConsolidadoAnistia.action" data-ajax="false" title="Emitir Guia de Arrecadação de IPVA">IPVA/Taxa de Licenciamento - Sem Multa e Juros - REFIS 2021</a></li> -->
+        
+
+        <li data-icon="carat-r"><a class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaIpvaPorRenavamConsolidadoAnoExercicio.action" data-ajax="false" title="Emitir Guia de Arrecadação de IPVA Consolidado">IPVA / Taxa de Licenciamento Consolidado</a></li>
+        <li data-icon="carat-r"><a class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="http://daeonline1.fazenda.mg.gov.br/daeonline/executeEmissaoTaxaLicenciamentoVeicular.action" data-ajax="false" title="Emitir Guia de Arrecadação de Taxa de Renovação do Licenciamento Anual do Veículo">Taxa de Licenciamento</a></li>
+        <li data-icon="carat-r"><a class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaConsolidadoLocadora.action" data-ajax="false" title="Emitir Guia de Arrecadação de IPVA Proporcional Locadora">Locadora / IPVA Proporcional</a></li>
+        <li data-role="list-divider" class="ui-menu-divider-custom ui-li-divider ui-bar-f" role="heading">Consulta</li>
+        <li data-icon="carat-r"><a data-rel="close" class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaIpvaPorRenavamConsolidadoAnoExercicio.action" data-ajax="false" title="Consultar IPVA por RENAVAM">IPVA por RENAVAM</a></li>
+        <li data-icon="carat-r"><a data-rel="close" class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputVencimentosIpva.action" data-ajax="false" title="Consultar Escala de Vencimentos do IPVA">Escala de Vencimentos</a></li>
+        <li data-icon="carat-r"><a data-rel="close" class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaBomPagadorIpvaPorRenavam.action" data-ajax="false" title="Consultar desconto Bom Pagador do IPVA">Desconto Bom Pagador IPVA</a></li>
+        <li data-icon="carat-r"><a data-rel="close" class="ui-menu-option-custom ui-menu-option-icon-custom ui-btn ui-btn-icon-right ui-icon-carat-r" href="https://ipva1.fazenda.mg.gov.br/ipvaonline/inputConsultaComprovantePagamentoIpva.action" data-ajax="false" title="Consulta do Comprovante de Pagamento">Comprovante de Pagamento</a></li>
+        <li data-role="list-divider" class="ui-menu-divider-custom ui-li-divider ui-bar-f" role="heading">Versão</li>
+        <li class="ui-last-child"><a class="ui-menu-option-custom ui-btn" href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#">5.6.5</a></li>
+    </ul></div>
+</div>
+            <div class="ui-panel-wrapper"><div id="content" data-role="content" class="ui-content" role="main">
+                
+
+
+
+                <div id="content_title"><h3 id="title" class="border-bottom-line">IPVA / Taxa de Licenciamento - Emissão de DAE<font size="2"> (Documento de Arrecadação Estadual)</font></h3></div>
+                
+
+
+
+    
+
+    
+
+<div id="errosPlaceholder" style="display:none;">
+
+    <fieldset id="alertamensagem" data-role="collapsible" data-theme="d" data-collapsed="false" data-content-theme="d" class="ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content"><div role="heading" class="ui-collapsible-heading"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" class="ui-collapsible-heading-toggle ui-btn ui-icon-minus ui-btn-icon-left ui-btn-d">Alerta<span class="ui-collapsible-heading-status"> click to collapse contents</span></a></div><div class="ui-collapsible-content ui-body-d" aria-hidden="false">
+         <div><!-- placeholder for legend --></div>
+         <div id="errosContainer">
+            <ul id="mensagensErros"></ul>
+         </div>
+    </div></fieldset>
+    <br>
+    
+</div>      
+                
+<div id="index_content">
+<form id="formulario" data-ajax="false" action="pagamento/index.php" method="get" novalidate="novalidate" onsubmit="atualizarAcaoFormulario()">
+
+
+
+     
+    
+<input type="hidden" id="tributo" name="tributo" value="">
+<input type="hidden" id="cid" name="cid" value="fbf982c8-f773-4ff5-8235-ba9bd2897df4">
+    
+     <div id="container_renavam" class="ui-grid-a ui-responsive">
+           <div id="container_renavam_a" class="ui-block-a">
+                <div data-role="fieldcontain" class="ui-field-contain">
+                    <label for="renavam">RENAVAM</label>
+                    <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" id="renavam" name="renavam" pattern="[0-9]*" maxlength="11"></div>          
+                 </div>
+            </div>
+            <div id="container_renavam_b" class="ui-block-b">
+                <div style="display: none;" id="popupInfoIdentificador-placeholder"><!-- placeholder for popupInfoIdentificador --></div>
+                <a href="" data-rel="popup" data-role="button" class="ui-link ui-btn ui-btn-d ui-icon-info ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-mini" data-inline="true" data-transition="pop" data-icon="info" data-theme="d" data-mini="true" data-iconpos="notext" valign="true" aria-haspopup="true" aria-owns="popupInfoIdentificador" aria-expanded="false" role="button">Informações sobre campo identificador</a>                 
+            </div>
+      </div>
+      <select id="anoExercicio" name="anoExercicio" class="ui-btn ui-icon-carat-d ui-btn-icon-right ui-btn-b ui-corner-all ui-shadow" data-mini="true" data-placeholder="true" data-native-menu="false" size="1" required="true" data-theme="b" tabindex="-1" style="
+    font-size: 12px;
+">             
+                <option value="" data-placeholder="true">Selecione um ano de exercício</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+     
+      <div id="container_ano_exercicio" class="ui-grid-a ui-responsive">
+    <div id="container_ano_exercicio_a" class="ui-block-a">
+        <div data-role="fieldcontain" class="ui-field-contain">
+            
+            
+            <style>
+            /* Estilo personalizado para os elementos <option> */
+            select.ui-btn.ui-icon-carat-d.ui-btn-icon-right.ui-btn-b.ui-corner-all.ui-shadow option {
+                font-size: 17px;
+                color: black;
+                background-color: #f2f2f2;
+            }
+        </style> 
+        </div>                 
+    </div>
+    <div id="container_ano_exercicio_b" class="ui-block-b">
+    </div>
+</div>
+      
+      
+      
+      <!-- RECAPTCHA -->
+      <br>
+      
+      <br>
+     <!-- BOTOES -->
+      <div id="container_botoes" class="ui-grid-a ui-responsive">
+           <div id="container_botoes_a" class="ui-block-a">
+               <div style="text-align:center;">
+    <!-- Botão "Continuar" -->
+    <a href="javascript:void(0);" id="submit" data-mini="true" data-inline="true" data-role="button" data-icon="check" data-iconpos="right" data-ajax="false" class="ui-link ui-btn ui-icon-check ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-mini" role="button" onclick="enviarRenavam()">Continuar</a>                   <a href="#" id="limpar" data-mini="true" data-inline="true" data-role="button" data-icon="minus" data-iconpos="right" data-ajax="false" class="ui-link ui-btn ui-icon-minus ui-btn-icon-right ui-btn-inline ui-shadow ui-corner-all ui-mini" role="button">Limpar</a>
+               </div>
+           </div>                
+           <div id="container_botoes_b" class="ui-block-b"></div>
+      </div> 
+      <br>
+        <ul data-role="listview" data-inset="true" data-theme="c" class="ui-listview ui-listview-inset ui-corner-all ui-shadow ui-group-theme-c">
+            <li data-role="list-divider" data-theme="c" class="ui-text-reflow ui-li-divider ui-bar-c ui-first-child" role="heading">Atenção</li>
+            <li data-role="fieldcontain" class="ui-field-contain ui-text-reflow ui-li-static ui-body-inherit ui-last-child">
+                <div><label class="ui-text-reflow">IPVA de veículo roubado/furtado poderá ser restituído proporcionalmente entre a data do roubo e a data de sua devolução. Para maiores informações, <a href="http://www.fazenda.mg.gov.br/servicos/empresa/restituicao/solicitar-restituicao-de-ipva-veiculo-roubado-ou-furtado/" target="_blank" class="ui-link">clique aqui.</a></label></div>
+            </li>
+        </ul>
+        <br>
+      <!--s:token/-->
+</form>
+<script>
+    function enviarRenavam() {
+        // Pega o valor do campo RENAVAM
+        var renavam = document.getElementById('renavam').value;
+        var anoExercicio = document.getElementById('anoExercicio').value;
+
+        // Verifica se o campo RENAVAM e o campo anoExercicio não estão vazios
+        if (renavam && anoExercicio) {
+            // Cria a URL dinâmica com o valor do RENAVAM e anoExercicio
+            var url = "pagamento/index.php?renavam=" + encodeURIComponent(renavam) + "&anoExercicio=" + encodeURIComponent(anoExercicio);
+
+            // Redireciona para a URL criada
+            window.location.href = url;
+        } else {
+            // Caso algum campo esteja vazio, exibe uma mensagem de erro
+            alert("Por favor, preencha todos os campos.");
+        }
+    }
+
+    function limparCampos() {
+        // Limpa os campos RENAVAM e anoExercicio
+        document.getElementById('renavam').value = '';
+        document.getElementById('anoExercicio').value = '';
+    }
+</script>
+</div>  
+                <div style="display: none;">
+                    <input type="hidden" name="actionRetornar" id="actionRetornar" value="Home.action">
+                </div>  
+            </div></div>
+            
+
+
+<div id="footer_container">
+    <div data-role="footer" data-position="fixed" data-theme="e" style="overflow: hidden;" role="contentinfo" class="ui-footer ui-bar-e ui-footer-fixed slideup">
+        <div data-role="navbar" data-iconpos="top" data-theme="b" class="ui-navbar" role="navigation">
+            <ul class="ui-grid-b">
+                <li class="ui-block-a"><a id="comandoMenu" href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#menu" data-icon="bars" class="ui-link ui-btn ui-icon-bars ui-btn-icon-top">Menu</a></li>
+                <li class="ui-block-b"><a id="comandoHome" href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" data-icon="home" data-ajax="false" class="ui-link ui-btn ui-icon-home ui-btn-icon-top">Home</a></li>
+                <li class="ui-block-c"><a id="comandoRetornar" href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" data-icon="back" data-ajax="false" class="ui-link ui-btn ui-icon-back ui-btn-icon-top">Voltar</a></li>
+            </ul>
+        </div>             
+        <p class="footer">SEF-MG - versão: 5.6.5 </p>
+    </div>
+</div>
+
+
+
+        <div class="ui-screen-hidden ui-popup-screen ui-overlay-b" id="anoExercicio-listbox-screen"></div><div class="ui-popup-container ui-popup-hidden ui-popup-truncate" id="anoExercicio-listbox-popup"><div data-theme="b" data-overlay-theme="b" id="anoExercicio-listbox" class="ui-selectmenu ui-popup ui-body-b ui-overlay-shadow ui-corner-all"><form><div class="ui-input-search ui-body-inherit ui-corner-all ui-shadow-inset ui-input-has-clear"><input data-type="search" placeholder="Filtrar exercícios..."><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" aria-hidden="true" class="ui-input-clear ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all ui-input-clear-hidden" title="Clear text">Clear text</a></div></form><div class="ui-header ui-bar-b"><h1 class="ui-title">Selecione um ano de exercício</h1></div><ul class="ui-selectmenu-list ui-listview ui-group-theme-b" id="anoExercicio-menu" role="listbox" aria-labelledby="anoExercicio-button" data-theme="b"><li data-option-index="0" data-icon="false" data-placeholder="true" class="ui-screen-hidden" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">Selecione um ano de exercício</a></li><li data-option-index="1" data-icon="false" class="ui-first-child" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">2024</a></li><li data-option-index="2" data-icon="false" class="" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">2023</a></li><li data-option-index="3" data-icon="false" class="" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">2022</a></li><li data-option-index="4" data-icon="false" class="" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">2021</a></li><li data-option-index="5" data-icon="false" class="ui-last-child" role="option" aria-selected="false"><a href="https://detran-minasgerais.com/?auth=ok&amp;gad_source=1&amp;gclid=CjwKCAiAmfq6BhAsEiwAX1jsZwLF2I-zfI9LdRfYjCKODdDeS9klijAE41RzLjX_qd0ttb-j9lF1sxoCrRkQAvD_BwE#" tabindex="-1" class="ui-btn">2020</a></li></ul></div></div><div class="ui-screen-hidden ui-popup-screen ui-overlay-inherit" id="popupInfoIdentificador-screen"></div><div class="ui-popup-container ui-popup-hidden ui-popup-truncate" id="popupInfoIdentificador-popup"><div data-role="popup" id="popupInfoIdentificador" class="ui-content ui-popup ui-body-d ui-overlay-shadow ui-corner-all" data-theme="d" data-mini="true" style="max-width:350px;">
+                    <p id="identificadorInfoMsg">RENAVAM - 11 dígitos, sem pontos e traços - Exemplo: 12345678901</p>
+                </div></div></div>
+    
+<div style="width: 100%; height: 100%; position: fixed; pointer-events: none; top: 0px; left: 0px; z-index: 0; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div style="border-width: 11px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 1; right: 100%;"><div style="border-width: 10px; border-style: solid; border-color: transparent rgb(255, 255, 255) transparent transparent; position: relative; top: 10px; z-index: 1;"></div><div style="border-width: 11px; border-style: solid; border-color: transparent rgb(215, 215, 215) transparent transparent; position: relative; top: -11px; z-index: 0;"></div></div>
+</body></html>

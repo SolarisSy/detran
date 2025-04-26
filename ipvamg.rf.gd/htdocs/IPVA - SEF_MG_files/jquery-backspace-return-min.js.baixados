@@ -1,0 +1,12 @@
+jQuery(function(){var b=/INPUT|TEXTAREA/i;
+var a=/RADIO|CHECKBOX|SUBMIT|BUTTON/i;
+jQuery(document).bind("keydown keypress",function(f){var h;
+if(f.keyCode==8){var g=f.srcElement||f.target;
+if(b.test(f.target.tagName)){var c=false;
+if(g.attributes.type){c=a.test(g.attributes.type.value);
+}h=g.readOnly||g.disabled||c;
+}else{h=true;
+}}else{h=false;
+}if(h){f.preventDefault();
+}});
+});

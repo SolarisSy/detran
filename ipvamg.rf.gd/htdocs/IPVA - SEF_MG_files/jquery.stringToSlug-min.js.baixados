@@ -1,0 +1,25 @@
+jQuery.fn.stringToSlug=function(a){var c={setEvents:"keyup keydown blur",getPut:"#permalink",space:"",prefix:"",suffix:"",replace:"",callback:false};
+var b=jQuery.extend(c,a);
+jQuery(this).bind(c.setEvents,function(){var j=jQuery(this).val();
+j=c.prefix+j+c.suffix;
+var f=[];
+for(var d=0;
+d<32;
+d++){f.push("");
+}f.push(" ","","","","","","","",c.space,c.space,"","",c.space,c.space,c.space,c.space,"0","1","2","3","4","5","6","7","8","9","","","","","","","","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",c.space,c.space,c.space,"",c.space,"","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",c.space,"",c.space,"","","C","A","","f","","","T","t","","","S","","CE","A","Z","A","A","","","","","",c.space,c.space,"","TM","s","","ae","A","z","Y","","","c","L","o","Y","","S","","c","a","","","","r",c.space,"o","","2","3","","u","p","","","1","o","","","","","","A","A","A","A","A","A","AE","C","E","E","E","E","I","I","I","I","D","N","O","O","O","O","O","x","O","U","U","U","U","Y","D","B","a","a","a","a","a","a","ae","c","e","e","e","e","i","i","i","i","o","n","o","o","o","o","o","","o","u","u","u","u","y","","y","A","a","A","a","A","a","C","c","C","c","C","c","C","c","D","d","D","d","E","e","E","e","E","e","E","e","E","e","G","g","G","g","G","g","G","g","H","h","H","h","I","i","I","i","I","i","I","i","I","i","IJ","ij","J","j","K","k","k","L","l","L","l","L","l","L","l","L","l","N","n","N","n","N","n","n","N","n","O","o","O","o","O","o","OE","oe","R","r","R","r","R","r","S","s","S","s","S","s","S","s","T","t","T","t","T","t","U","u","U","u","U","u","U","u","U","u","U","u","W","w","Y","y","Y","Z","z","Z","z","Z","z","s");
+for(var d=256;
+d<100;
+d++){f.push("");
+}var h=new String();
+var e=f.length;
+for(var d=0;
+d<j.length;
+d++){var g=j.charCodeAt(d);
+if(g<e){h+=f[g];
+}}jQuery(c.getPut).val(h);
+jQuery(c.getPut).html(h);
+if(c.callback!=false){c.callback(h);
+}return this;
+});
+return this;
+};

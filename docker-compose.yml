@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ipva-mg-app
+    ports:
+      - "8080:80" # Mapeia a porta 80 do container para 8080 do host
+    volumes:
+      # Monta o código fonte para desenvolvimento (opcional, remova para produção pura)
+      - ./ipvamg.rf.gd/htdocs:/var/www/html 
+    environment:
+      # Variáveis para conexão com o banco (app -> db)
+      - DB_HOST=db
+      - DB_NAME=ipva_db        # Nome do banco definido no serviço 'db'
+      - DB_USER=ipva_user      # Usuário definido no serviço 'db'
+      - DB_PASS=sua_senha_segura_para_o_banco # SENHA FORTE AQUI!
+      # Variável para a API Zippify
+      - ZIPPIFY_API_TOKEN=seu_token_real_zippify # SEU TOKEN AQUI!
+    depends_on:
+      - db # Garante que o container 'db' inicie antes do 'app'
+    networks:
+      - app-network
+
+  db:
+    image: mysql:8.0 # Ou outra versão se preferir (ex: mariadb)
+    container_name: ipva-mg-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sua_senha_root_muito_segura # SENHA FORTE AQUI!
+      MYSQL_DATABASE: ipva_db        # Cria este banco automaticamente
+      MYSQL_USER: ipva_user      # Cria este usuário
+      MYSQL_PASSWORD: sua_senha_segura_para_o_banco # Mesma senha definida em DB_PASS
+    volumes:
+      # Volume para persistir os dados do MySQL
+      - db_data:/var/lib/mysql
+      # Monta o script SQL para inicialização automática do banco
+      - ./ipva.sql:/docker-entrypoint-initdb.d/init.sql 
+    networks:
+      - app-network
+    # Descomente se precisar acessar o banco diretamente do host (ex: com DBeaver)
+    # ports:
+    #   - "33066:3306"
+
+volumes:
+  db_data: # Define o volume nomeado para persistência
+
+networks:
+  app-network: # Define a rede para os containers se comunicarem
+    driver: bridge 

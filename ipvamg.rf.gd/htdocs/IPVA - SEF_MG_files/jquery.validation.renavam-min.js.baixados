@@ -1,0 +1,8 @@
+jQuery.validator.addMethod("tamanhorenavam",function(b,a){b=jQuery.trim(b);
+if(b.length==11){return true;
+}return false;
+},"O campo 'Renavam' deve conter 11 dígitos.");
+jQuery.validator.addMethod("valorzeradorenavam",function(b,a){b=jQuery.trim(b);
+if(b>0){return true;
+}return false;
+},"O campo 'Renavam' deve ser maior que Zero.");
