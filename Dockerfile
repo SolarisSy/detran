@@ -22,6 +22,9 @@ RUN rm -rf /var/www/html/*
 # Copiar o código da aplicação (do diretório htdocs) para o diretório web do container
 COPY ipvamg.rf.gd/htdocs/ /var/www/html/
 
+# Copiar configuração personalizada de log do PHP
+COPY logging.ini /usr/local/etc/php/conf.d/logging.ini
+
 # Ajustar permissões (se necessário, pode precisar de ajustes dependendo do usuário do Apache)
 # RUN chown -R www-data:www-data /var/www/html
 # RUN chmod -R 755 /var/www/html
