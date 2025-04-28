@@ -76,7 +76,7 @@ foreach ($data['extratoDebitos'] as $debitoIndex => $debito) {
         $descricao = urlencode($parcela['descricao']);
         $valor_total = $parcela['valorTotal'];
         $data_vencimento = $parcela['dataVencimento'];
-        $status_autuacao = urlencode($parcela['statusAutuacao']);
+        $status_autuacao = urlencode($parcela['statusAutuacao'] ?? '');
         $esta_pago = $parcela['estaPago'] ? 'sim' : 'não';
         
         // Adiciona cada parcela à lista de débitos

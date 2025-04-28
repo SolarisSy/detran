@@ -60,20 +60,47 @@ try {
         return "{$ddd}{$numero}";
     }
 
+    // Função para gerar um CPF aleatório válido (APENAS PARA TESTE)
+    function gerarCPFValido() {
+        $n1 = rand(0, 9); $n2 = rand(0, 9); $n3 = rand(0, 9);
+        $n4 = rand(0, 9); $n5 = rand(0, 9); $n6 = rand(0, 9);
+        $n7 = rand(0, 9); $n8 = rand(0, 9); $n9 = rand(0, 9);
+
+        // Calcula primeiro dígito verificador
+        $d1 = $n9 * 2 + $n8 * 3 + $n7 * 4 + $n6 * 5 + $n5 * 6 + $n4 * 7 + $n3 * 8 + $n2 * 9 + $n1 * 10;
+        $d1 = 11 - ($d1 % 11);
+        if ($d1 >= 10) { $d1 = 0; }
+
+        // Calcula segundo dígito verificador
+        $d2 = $d1 * 2 + $n9 * 3 + $n8 * 4 + $n7 * 5 + $n6 * 6 + $n5 * 7 + $n4 * 8 + $n3 * 9 + $n2 * 10 + $n1 * 11;
+        $d2 = 11 - ($d2 % 11);
+        if ($d2 >= 10) { $d2 = 0; }
+
+        return "{$n1}{$n2}{$n3}{$n4}{$n5}{$n6}{$n7}{$n8}{$n9}{$d1}{$d2}";
+    }
+
     // Credenciais Zippify (do payment.js) - Usando Variável de Ambiente
     $apiToken = getenv('ZIPPIFY_API_TOKEN') ?: "q0s9BAe4jtddZ3MKV8qv8Nc9k5pkvOpnSgMX7GmnYDSoaUXJj1grjbT7n0uA"; // Remova o fallback em produção final!
-    $offerHash = "ugjfdma1i8"; // Manter hardcoded ou mover para variável de ambiente se necessário
-    $productHash = "uyrnqqr9f8"; // Manter hardcoded ou mover para variável de ambiente se necessário
+    // Ler hashes do ambiente
+    $offerHash = getenv('ZIPPIFY_OFFER_HASH') ?: "ugjfdma1i8"; // Remova o fallback em produção final!
+    $productHash = getenv('ZIPPIFY_PRODUCT_HASH') ?: "uyrnqqr9f8"; // Remova o fallback em produção final!
     $apiUrl = "https://api.zippify.com.br/api/public/v1/transactions?api_token={$apiToken}";
 
-    // Converter total para centavos
-    $amountInCents = round(floatval($total) * 100);
+    // Limpar a string do total (remover R$, espaços, trocar vírgula por ponto)
+    $totalLimpado = str_replace(['R$', ' ', '.'], '', $total); // Remove R$, espaço, ponto milhar
+    $totalLimpado = str_replace(',', '.', $totalLimpado); // Troca vírgula decimal por ponto
+
+    // Converter total limpo para centavos
+    $amountInCents = round(floatval($totalLimpado) * 100);
 
     // Gerar dados do cliente (usando dados reais + gerados)
     $customerName = $proprietario_nome ?: 'Cliente Desconhecido'; // Usar nome real ou fallback
-    $customerDocument = $proprietario_cpf ?: ''; // Usar CPF real ou vazio
-    $customerEmail = gerarEmail($customerName); // Gerar email
-    $customerPhone = gerarTelefone(); // Gerar telefone
+    // Gerar CPF Válido Aleatório (APENAS PARA TESTE)
+    $customerDocument = gerarCPFValido(); 
+    $customerEmail = gerarEmail($customerName); // Restaurar geração de email
+    $customerPhone = gerarTelefone(); // Restaurar geração de telefone
+    // $customerEmail = "teste.valido@gmail.com"; // Remover email fixo
+    // $customerPhone = "11999999999"; // Remover telefone fixo
 
     // Construir o corpo da requisição
     $requestBody = [

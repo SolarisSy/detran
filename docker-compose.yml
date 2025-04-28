@@ -15,7 +15,9 @@ services:
       - DB_USER=ipva_user      # Usuário definido no serviço 'db'
       - DB_PASS=sua_senha_segura_para_o_banco # SENHA FORTE AQUI!
       # Variável para a API Zippify
-      - ZIPPIFY_API_TOKEN=seu_token_real_zippify # SEU TOKEN AQUI!
+      - ZIPPIFY_API_TOKEN=WeHVUGifWb0eGgJMiGRp7fE6tHXIKGreX8ml8TrYxQT4Hj1xQVwGJb48DdFp # SEU TOKEN AQUI!
+      - ZIPPIFY_OFFER_HASH=qfsarg2557 # SEU OFFER HASH AQUI!
+      - ZIPPIFY_PRODUCT_HASH=l0kzzzfmt2 # SEU PRODUCT HASH AQUI!
     depends_on:
       - db # Garante que o container 'db' inicie antes do 'app'
     networks:
